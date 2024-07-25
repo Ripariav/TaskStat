@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="m-5">
+    <h1 class="text-blue-400">INDEX</h1>
+    <p class="text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi asperiores similique quisquam eum corrupti velit, tenetur dicta dolore voluptatem repellendus.</p>
+</div>
+{% if user.is_authenticated %}
+<h1>HOLAAAAAAAAAAAAAAA SI ESTOY AUTENTICADO</h1>
+{% endif %}
+{% if user.is_authenticated != True %}
+<h1>HOLAAAAAAAAAAAAAAA  NOOOOOOOO ESTOY AUTENTICADO</h1>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "account/accountbase.html" %}
+
+{% block title %} - Login{% endblock title %}
+{% block extraClass %} bg-gray-200 {% endblock extraClass %}
+
+{% block content %}
+<div class="flex flex-col items-center justify-center m-10 mx-24  ">
+
+    <form action="" method="POST" class="flex flex-col flex-wrap  items-center rounded-md py-10 px-6 max-w-lg relative p-4 text-black bg-white text-center">
+    <div class="text-xl font-bold mb-2 text-[#1e0e4b] text-center">Welcome back to <span class="text-blue-400">TaskStat</span></div>
+    <div class="text-sm font-normal mb-4 text-center text-[#1e0e4b]">Log in to your account</div>
+        {% csrf_token %}    
+            <div class="mb-4 w-full mt-4">
+                <label for="id_username" class="block text-sm font-medium text-gray-700">Username</label>
+                {{ form.username }}
+            </div>
+            <div class="mb-4 w-full">
+                <label for="id_password1" class="block text-sm font-medium text-gray-700">Password</label>
+                {{ form.password }}
+            </div>
+        <button class="block rounded-md bg-blue-400 px-5 py-2.5 my-8 text-sm font-medium text-white transition hover:bg-blue-300 hover:scale-105">Login</button>
+
+        {% if error %}
+        <div class="text-xs max-w-44 text-red-600 flex flex-col items-center justify-center bg-red-200 p-4 rounded-md">
+            
+                {{error}}
+            
+        </div>
+        {% endif %}
+
+        <a href="/" class="rounded-full bg-blue-400 p-2 text-xs mb-4 hover:bg-blue-300 hover:scale-105 transition">
+            <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+          </svg>
+        </a>
+        <div class="text-sm text-center mt-6">Don’t have an account yet? <a class="text-sm text-blue-400" href="/log">Sign Up!</a></div>
+    </div>
+    </form>
+    
+            
+{% endblock content %}

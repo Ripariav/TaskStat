@@ -1,0 +1,37 @@
+{% extends "dashboard/basedsh.html" %} {% block contentHmenu %}
+<div
+  class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+>
+  <div
+    class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+  ></div>
+  <a
+    class="block rounded-md bg-blue-400 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-300"
+    href="/dashboard/task/create"
+  >
+    New Task +
+  </a>
+</div>
+{% endblock contentHmenu %} {% block content %}
+<div class="m-10">
+  <!-- Main Content -->
+  <div id="general-content" class="w-80">
+    <a href="#" class="">
+      <img
+        alt=""
+        src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+        class="h-64 w-full object-cover sm:h-80 lg:h-96"
+      />
+
+      <h3 class="mt-4 text-lg font-bold text-gray-900 sm:text-xl">
+        Lorem, ipsum dolor.
+      </h3>
+
+      <p class="mt-2 max-w-sm text-gray-700">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni
+        reiciendis sequi ipsam incidunt.
+      </p>
+    </a>
+  </div>
+  {% endblock content %}
+</div>
