@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #myapps
     'account',
+    'main',
+    'dashboard',
     #tailwindapps
     'tailwind',
     'theme',
@@ -83,6 +85,9 @@ TEMPLATES = [
         },
     },
 ]
+
+# settings.py
+LOGIN_URL = '/main/index/'
 
 WSGI_APPLICATION = 'TaskStat.wsgi.application'
 
