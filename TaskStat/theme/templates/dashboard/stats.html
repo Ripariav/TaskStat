@@ -1,0 +1,94 @@
+{% extends "dashboard/basedsh.html" %} {% load static %} {% block header %}
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+{% endblock header %} {% block contentHmenu %}
+<div class="container flex flex-wrap flex-col md:flex-row items-center">
+  <h2 class="m-4">Statistics</h2>
+  <a
+    class="block rounded-md bg-blue-400 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-300"
+    href="/dashboard/task"
+  >
+    Back to Tasks
+  </a>
+</div>
+{% endblock contentHmenu %} 
+{% block content %}
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-10 mx-4 bg-white shadow-lg rounded-lg mt-10">
+    <div class="flex flex-col text-center w-full mb-5">
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Task Stats</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Hello! {{user.username|capfirst}}, this is you'r actual info!</p>
+    </div>
+    <div class="flex flex-wrap -m-4 text-center">
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg class="text-blue-400 w-12 h-12 mb-3 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
+          </svg>  
+          <h2 class="title-font font-medium text-3xl text-gray-900">{{ total_tasks }}</h2>
+          <p class="leading-relaxed">Total Tasks</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg class="text-blue-400 w-12 h-12 mb-3 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/>
+          </svg>          
+          <h2 class="title-font font-medium text-3xl text-gray-900">{{ completed_tasks }}</h2>
+          <p class="leading-relaxed">Completed Tasks</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg class="text-blue-400 w-12 h-12 mb-3 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+          </svg>
+          
+          <h2 class="title-font font-medium text-3xl text-gray-900">{{ pending_tasks }}</h2>
+          <p class="leading-relaxed">Pending Tasks</p>
+        </div>
+      </div>
+      <div class="p-4 md:w-1/4 sm:w-1/2 w-full">
+        <div class="border-2 border-gray-200 px-4 py-6 rounded-lg">
+          <svg class="text-blue-400 w-12 h-12 mb-3 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+          </svg>
+          <h2 class="title-font font-medium text-3xl text-gray-900">{{ overdue_tasks }}</h2>
+          <p class="leading-relaxed">Over due Task</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="p-4 flex flex-col gap-10 ">
+  <div class="container p-4 flex flex-col bg-white shadow-lg rounded-lg">
+
+    <div class="flex flex-row gap-20 mt-4 flex-wrap items-center justify-center">
+      <div
+        id="bar-chart"
+        style="width: 100%; height: 250px; width: 250px">
+      </div>
+      <div
+        id="line-chart"
+        style="width: 100%; height: 250px; width: 250px"
+      ></div>
+      <div
+        id="pie-chart"
+        style="width: 100%; height: 250px; width: 250px"
+      ></div>
+
+      <script id="bar-data" type="application/json">
+        {{ bar_data|safe }}
+      </script>
+      <script id="line-data" type="application/json">
+        {{ line_data|safe }}
+      </script>
+      <script id="pie-data" type="application/json">
+        {{ pie_data|safe }}
+      </script>
+    </div>
+  </div>
+</section>
+
+{% endblock content %} {% block scripts %}
+<script src="{% static 'js/stats.js' %}"></script>
+{% endblock scripts %}

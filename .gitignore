@@ -11,3 +11,5 @@ __pycache__/
 
 # Ignorar archivos sensibles
 *.env
+
+node_modules
