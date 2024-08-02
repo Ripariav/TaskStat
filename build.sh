@@ -12,4 +12,4 @@ python manage.py collectstatic --no-input
 python manage.py migrate
 
 # Construir Tailwind CSS
-npx tailwindcss -i ./staticfiles/css/dist/styles.css -o ./staticfiles/css/dist/output.css --minify
+npx tailwindcss -i TaskStat/staticfiles/css/dist/styles.css -o TaskStat/staticfiles/css/dist/output.css --minify
