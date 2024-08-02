@@ -3,7 +3,7 @@ module.exports = {
         '../templates/**/*.html',
         '../../templates/**/*.html',
         '../../**/templates/**/*.html',
-        './static/**/*.{html,js}'  // Asegúrate de que esta ruta sea correcta
+        './staticfiles/**/*.{html,js}'
     ],
     theme: {
         extend: {
