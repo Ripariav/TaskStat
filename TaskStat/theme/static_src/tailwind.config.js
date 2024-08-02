@@ -1,9 +1,8 @@
 module.exports = {
     content: [
-        '../templates/**/*.html',
-        '../../templates/**/*.html',
-        '../../**/templates/**/*.html',
-        './staticfiles/**/*.{html,js}'
+        './templates/**/*.html',
+        './staticfiles/**/*.html',  // Si tienes archivos HTML en staticfiles
+        './staticfiles/**/*.js',    // Si tienes archivos JS en staticfiles
     ],
     theme: {
         extend: {
@@ -12,9 +11,9 @@ module.exports = {
                 '124': '30rem',
                 '128': '32rem',
             },
-            fontFamily:{
-                sans:['Roboto', 'sans-serif']
-            }
+            fontFamily: {
+                sans: ['Roboto', 'sans-serif'],
+            },
         },
     },
     plugins: [
@@ -23,4 +22,4 @@ module.exports = {
         require('@tailwindcss/typography'),
         require('@tailwindcss/aspect-ratio'),
     ],
-}
+};

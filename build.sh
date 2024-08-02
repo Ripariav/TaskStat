@@ -2,14 +2,14 @@
 # Exit on error
 set -o errexit
 
-# Install dependencies (uncomment if needed)
-# pip install -r requirements.txt
+# Instalar dependencias
+pip install -r requirements.txt
 
-# Collect static files
+# Convertir archivos estáticos
 python manage.py collectstatic --no-input
 
-# Apply any outstanding database migrations
+# Aplicar cualquier migración pendiente
 python manage.py migrate
 
-# Build Tailwind CSS
-npx tailwindcss -i ./staticfiles/css/styles.css -o ./staticfiles/css/output.css --minify
+# Construir Tailwind CSS
+npx tailwindcss -i ./staticfiles/css/dist/styles.css -o ./staticfiles/css/dist/output.css --minify
