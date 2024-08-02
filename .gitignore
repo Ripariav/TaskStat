@@ -14,3 +14,5 @@ __pycache__/
 
 node_modules
 settings.py
+
+db.slite3
