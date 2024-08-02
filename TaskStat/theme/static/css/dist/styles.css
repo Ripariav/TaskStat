@@ -1944,12 +1944,20 @@ select {
     width: 5rem;
   }
 
+  .sm\:w-full {
+    width: 100%;
+  }
+
   .sm\:min-w-0 {
     min-width: 0px;
   }
 
   .sm\:max-w-20 {
     max-width: 5rem;
+  }
+
+  .sm\:max-w-full {
+    max-width: 100%;
   }
 
   .sm\:flex-row {
@@ -2039,6 +2047,10 @@ select {
 
   .md\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .md\:w-1\/2 {
+    width: 50%;
   }
 
   .md\:min-w-max {
