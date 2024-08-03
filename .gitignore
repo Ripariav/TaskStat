@@ -13,6 +13,5 @@ __pycache__/
 *.env
 
 node_modules
-settings.py
 
 db.slite3
