@@ -3,6 +3,6 @@
     "tailwind-scrollbar": "^3.1.0"
   },
   "scripts": {
-    "build": "tailwindcss -i TaskStat/staticfiles/css/dist/styles.css -o TaskStat/staticfiles/css/dist/output.css --minify"
+    "build": "tailwindcss -i ./staticfiles/css/dist/styles.css -o ./staticfiles/css/dist/output.css --minify"
   }
 }
