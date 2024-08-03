@@ -20,22 +20,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'account',
     'main',
     'dashboard',
+    'django.contrib.staticfiles',
     'tailwind',
     'theme',
     'django_browser_reload',
 ]
 
 TAILWIND_APP_NAME = 'theme'
-
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
-
-NPM_BIN_PATH = "C:/Users/pc/AppData/Roaming/npm/npm.cmd"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,32 +73,25 @@ DATABASES = {
 }
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
+    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+# This is where static files will be collected for production
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Point to the theme static directory for development
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'theme', 'static'),  # Cambia a la ruta correcta de tu directorio estático de `theme`
+    os.path.join(BASE_DIR, 'theme/static'),
 ]
 
 MEDIA_URL = '/media/'
