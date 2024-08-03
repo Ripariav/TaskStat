@@ -3,7 +3,7 @@
 set -o errexit
 
 # Instalar dependencias
-pip install -r requirements.txt
+# pip install -r requirements.txt
 
 # Convertir archivos estáticos
 python manage.py collectstatic --no-input
