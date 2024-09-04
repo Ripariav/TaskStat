@@ -1,0 +1,116 @@
+{% extends "dashboard/basedsh.html" %} 
+{% load static %}
+{% block contentHmenu %}
+<div class="container flex flex-wrap flex-col md:flex-row items-center">
+  <h2 class="m-4">Bienvenido, {{ user|capfirst }}</h2>
+  <div
+    class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+  ></div>
+  <a
+    class="block rounded-md bg-blue-400 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-blue-300"
+    href="/dashboard/task/create"
+  >
+    New Task +
+  </a>
+</div>
+{% endblock contentHmenu %} {% block content %}
+<div class="flex flex-row flex-wrap">
+  {% comment %} PENDING, WORKING ON IT, TASKS {% endcomment %}
+  <div class="md:flex-none min-w-max p-4 bg-white rounded-lg ml-4 mt-6 shadow-md">
+    
+    <div
+      class="flex flex-col max-h-128  overflow-y-auto scrollbar-thin scrollbar-track-transparent "
+    >
+    <h2 class="justify-normal mt-10 ml-2 mb-5 text-2xl">Pending Tasks</h2>
+      {% for task in tasks %} {% if task.status == 'pending' or task.status == 'in_progress' %}
+      <div class="p-2 sm:w-1/2">
+        <a href="{% url 'update_task' task.id %}">
+          <div class="bg-gray-200 rounded flex p-4 w-120 items-center justify-between cursor-pointer">
+            <div>
+             {% if task.priority == 'high' %}
+             <i class="fi fi-sr-comment-exclamation mr-2 mt-1 text-red-400"></i>
+             {% elif task.priority == 'medium' %}
+             <i class="fi fi-sr-comment-minus mr-2 mt-1 text-slate-400"></i>
+             {% else %}
+             <i class="fi fi-sr-comment-check mr-2 mt-1 text-green-400"></i>
+             {% endif %}
+           <span class="title-font font-medium">{{task.title}}{% if task.due_date %} - {{task.due_date}} {% endif %} </span>
+            </div>
+           <i class="fi fi-rr-angle-small-right"></i>
+           </div>
+        </a>
+      </div>
+      {% endif %} {% empty %}
+      <p>No tasks available.</p>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% comment %} TOMORROW TASKS {% endcomment %}
+  <div class="md:flex-none w-128 min-w-max p-4 sm:w-30 bg-white rounded-lg ml-4 mt-6 shadow-md">
+    <h2 class="justify-normal mt-10 mb-5 text-2xl ml-2">Today's Tasks</h2>
+    <div class="flex flex-col max-h-64 overflow-y-auto">
+      {% for task in today|dictsort:"due_date" %}
+      <div class="p-2 sm:w-1/2 w-full ">
+        <a href="{% url 'update_task' task.id %}">
+          <div class="bg-gray-200 rounded flex p-4 w-120 items-center justify-between cursor-pointer">
+            <div>
+             {% if task.priority == 'high' %}
+             <i class="fi fi-sr-comment-exclamation mr-2 mt-1 text-red-400"></i>
+             {% elif task.priority == 'medium' %}
+             <i class="fi fi-sr-comment-minus mr-2 mt-1 text-slate-400"></i>
+             {% else %}
+             <i class="fi fi-sr-comment-check mr-2 mt-1 text-green-400"></i>
+             {% endif %}
+           <span class="title-font font-medium">{{task.title}}{% if task.due_date %} - {{task.due_date}} {% endif %} </span>
+            </div>
+           <i class="fi fi-rr-angle-small-right"></i>
+           </div>
+        </a>
+      </div>
+      {% empty %}
+      <p>No tasks available.</p>
+      {% endfor %}
+    </div>
+
+
+    <h2 class="justify-normal mt-10 mb-5 text-2xl ml-2">Tasks Due Tomorrow</h2>
+    <div class="flex flex-col max-h-64 overflow-y-auto ">
+      {% for task in tomorrow|dictsort:"due_date" %}
+      <div class="p-2 sm:w-1/2 w-full ">
+        <a href="{% url 'update_task' task.id %}">
+          <div class="bg-gray-200 rounded flex p-4 w-120 items-center justify-between cursor-pointer">
+            <div>
+             {% if task.priority == 'high' %}
+             <i class="fi fi-sr-comment-exclamation mr-2 mt-1 text-red-400"></i>
+             {% elif task.priority == 'medium' %}
+             <i class="fi fi-sr-comment-minus mr-2 mt-1 text-slate-400"></i>
+             {% else %}
+             <i class="fi fi-sr-comment-check mr-2 mt-1 text-green-400"></i>
+             {% endif %}
+           <span class="title-font font-medium">{{task.title}}{% if task.due_date %} - {{task.due_date}} {% endif %} </span>
+            </div>
+           <i class="fi fi-rr-angle-small-right"></i>
+           </div>
+        </a>
+      </div>
+      {% empty %}
+      <p>No tasks available.</p>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- Calendar -->
+   <div class="md:flex-none w-128 min-w-max p-4 sm:w-30 bg-white rounded-lg ml-4 mt-6 shadow-md">
+    <div id="calendar" class="mt-10"></div>
+   </div>
+  
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script>
+  var taskEvents = {{ task_events|safe }};
+</script>
+<script src="{% static 'js/calendar.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,48 @@
+{% extends "dashboard/basedsh.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mx-auto p-4 bg-white shadow-lg rounded-lg max-w-128 my-5 mt-10">
+  <h1 class="text-2xl font-semibold mb-4">Perfil de Usuario</h1>
+  
+  <!-- Información del Perfil (Visible por defecto) -->
+  <div id="profile-info">
+      <p class="my-5"><strong>Nombre:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+      <p class="my-5"><strong>Email:</strong> {{ user.email }}</p>
+      <!-- Agrega más campos si es necesario -->
+      
+      <button type="button" id="edit-btn" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-400">
+          Editar Perfil
+      </button>
+  </div>
+  
+  <!-- Formulario de Edición (Oculto por defecto) -->
+  <form method="post" id="profile-form" class="hidden">
+      {% csrf_token %}
+      
+      <div class="mb-4">
+          <h2 class="text-xl font-semibold">Actualizar Información</h2>
+          {{ user_form.as_p }}
+      </div>
+      
+      <div class="mb-4">
+          <h2 class="text-xl font-semibold">Cambiar Contraseña</h2>
+          {{ password_form.as_p }}
+      </div>
+      
+      <button type="submit" id="save-btn" class="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-400">
+          Guardar Cambios
+      </button>
+      
+      <button type="button" id="cancel-btn" class="bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-400">
+          Cancelar
+      </button>
+  </form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'js/profile.js' %}"></script>{% endblock scripts %}
+
+

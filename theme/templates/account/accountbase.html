@@ -1,0 +1,20 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>TaskStat{% block title %}{% endblock title %}</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-gray-50 font-sans leading-normal tracking-normal h-screen min-h-screen flex flex-col {% block extraClass %} {% endblock extraClass %}">
+			
+		<div class="flex-grow">
+			{% block content %}
+			{% comment %} content {% endcomment %}
+			{% endblock content %}
+		</div>
+	</body>
+</html>

@@ -1,0 +1,207 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<div class="">
+    <div class="flex items-center justify-center">
+        <div class="-z-10 w-full">
+            <video src="{% static "vid/video.mp4" %}" autoplay loop muted class="max-h-[800px] w-full object-cover brightness-50"></video>
+        </div>
+        <div class="z-10 absolute">
+            <img src="{% static "img/logotext-white.svg" %}" alt="" class="md:w-128 md:min-h-72 inset-0 sm:w-80 ">
+            <a href="#about" class='relative translate-y-48 justify-center items-center hidden lg:flex cursor-pointer '>
+                <svg class="w-16 h-16 text-opacity-20 hover:text-opacity-100 text-white transition hover:translate-y-4 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    
+
+    <section id="about"class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto flex flex-col">
+              <div class="lg:w-4/6 mx-auto">
+                <div class="rounded-lg h-64 overflow-hidden">
+                  <img alt="content" class="object-cover object-center h-full w-full shadow-sm" src="{% static "img/banner.png" %}">
+                </div>
+                <div class="flex flex-col sm:flex-row mt-10">
+                  <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                    <div class=" inline-flex items-center justify-center overflow-hidden  text-gray-400">
+                        <img src="{% static "img/logo-code.svg" %}" alt="" class="max-h-40">
+                    </div>
+                    <div class="flex flex-col items-center text-center justify-center">
+                      <div class="w-12 h-1 bg-blue-400 rounded mb-4 -translate-y-4 flex"></div>
+                      <p class="text-base">Hey! <br> Welcome to TaskStat! As an Industrial Engineer and Full-Stack Developer, I developed this application as a comprehensive learning project. It encompasses the entire development process, from initial conception to final deployment. </p>
+                    </div>
+                  </div>
+                  <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+                    <p class="leading-relaxed text-md mb-4">I created this app as a starting point to learn the entire process of building an application from inception to completion. This project has been a valuable learning experience, allowing me to dive into both the technical and creative aspects of software development.<br>
+                        The app is designed to help users manage their tasks efficiently and effectively. By combining modern design principles with practical functionality, I aimed to create a tool that simplifies task management while offering a pleasant user experience. <br>
+                        Key Aspects:
+                        <ul class="text-md list-disc ">
+                            <li><span class="text-blue-400">Holistic Development Experience: </span>From the initial concept and design to the final deployment, this project covers every phase of application development. It includes backend programming, frontend design, and user experience considerations.</li>
+                            <li><span class="text-blue-400">User-Centric Design: </span>The app’s interface is crafted with usability in mind, ensuring that users can navigate and utilize the features with ease. This includes intuitive layouts and responsive design to accommodate various devices.</li>
+                            <li><span class="text-blue-400">Integration of Modern Technologies: </span>The app leverages current web technologies and frameworks to provide a robust and scalable solution. Features like real-time updates and data visualization are implemented to enhance user productivity and engagement.</li>
+                        </ul>
+                        <br>
+                        This project not only serves as a practical application but also as a reflection of my commitment to continuous learning and improvement in the field of software development.
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+    </section>    
+
+    <section id="features" class="text-gray-600 bg-gray-100 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-col items-center justify-center mb-20">
+            <h1 class="sm:text-3xl text-2xl font-medium title-font text-center text-gray-900 ">Features</h1>
+            <h3>Always Improving</h3>
+          </div>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+            <div class="p-4 md:w-1/3 flex">
+              <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-blue-400 mb-4 flex-shrink-0">
+                <svg class="w-6 h-6 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 10h16m-8-3V4M7 7V4m10 3V4M5 20h14a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1Zm3-7h.01v.01H8V13Zm4 0h.01v.01H12V13Zm4 0h.01v.01H16V13Zm-8 4h.01v.01H8V17Zm4 0h.01v.01H12V17Zm4 0h.01v.01H16V17Z"/>
+                </svg>
+                
+              </div>
+              <div class="flex-grow pl-6">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Interactive Calendar</h2>
+                <p class="leading-relaxed text-base">Keep track of your tasks with an interactive calendar that updates in real-time. Easily view your scheduled tasks and manage your time more effectively.</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex">
+              <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-blue-400 mb-4 flex-shrink-0">
+                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v15a1 1 0 0 0 1 1h15M8 16l2.5-5.5 3 3L17.273 7 20 9.667"/>
+                </svg>
+                
+              </div>
+              <div class="flex-grow pl-6">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Comprehensive Statistics</h2>
+                <p class="leading-relaxed text-base">Gain insights into your productivity with detailed statistics. Analyze completed tasks, track progress over time, and make informed decisions to improve your workflow.</p>
+              </div>
+            </div>
+            <div class="p-4 md:w-1/3 flex">
+              <div class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-indigo-100 text-blue-400 mb-4 flex-shrink-0">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="flex-grow pl-6">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Customizable Notifications</h2>
+                <p class="leading-relaxed text-base">Stay on top of important deadlines and events with customizable notifications. Set reminders and alerts to ensure you never miss a critical task or appointment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+   
+        <section id="testimonials" class="py-16  text-center">
+        <h2 class="text-3xl font-semibold mb-4">Testimonials</h2>
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="lg:w-1/3 lg:mb-0 mb-6 p-4  flex items-center justify-center">
+                    <div class="h-full text-center">
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <svg class="w-20 h-20 mb-8 p-2 object-cover object-center rounded-full inline-block border-2 border-blue-400  fill-gray-500" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M14.5,13A1.5,1.5,0,1,1,16,11.5,1.5,1.5,0,0,1,14.5,13Zm7.351-4.726A9.975,9.975,0,0,0,12,0C5.1,0,3.124,4.674,1.819,7.767A6.372,6.372,0,0,1,.5,10.136a1,1,0,0,0,.379,1.856,15.806,15.806,0,0,0,7.257-1.1,1.5,1.5,0,1,0,1.724-.84,15.09,15.09,0,0,0,4.956-4.467,1,1,0,1,0-1.626-1.162A13.357,13.357,0,0,1,3,10.027c.227-.453.438-.956.662-1.483C4.892,5.628,6.423,2,12,2a7.978,7.978,0,0,1,7.954,7.15,1,1,0,0,0,.816.878A1.5,1.5,0,0,1,20.5,13a1.606,1.606,0,0,1-.252-.027.994.994,0,0,0-1.117.651C18.215,16.221,15.132,19,12,19h0c-2.9,0-5.6-2.283-6.766-4.539a1,1,0,1,0-1.776.92A11.264,11.264,0,0,0,8,19.953V23a1,1,0,0,0,2,0V20.738a7.708,7.708,0,0,0,4,0V23a1,1,0,0,0,2,0V19.954a11.037,11.037,0,0,0,4.732-4.962,3.5,3.5,0,0,0,1.119-6.718Z"/></svg>
+
+                        <p class="leading-relaxed">"Task Stat has completely transformed the way I manage my tasks. It's intuitive and incredibly effective."</p>
+                        <span class="inline-block h-1 w-10 rounded bg-blue-400 mt-6 mb-4"></span>
+                        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Julian Arias</h2>
+                        <p class="text-gray-500">Engeenier</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 lg:mb-0 mb-6 p-4">
+                    <div class="h-full text-center">
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <svg class="w-20 h-20 mb-8 p-2 object-cover object-center rounded-full inline-block border-2 border-blue-400 overflow-visible fill-gray-500"  xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M14.5,13A1.5,1.5,0,1,1,16,11.5,1.5,1.5,0,0,1,14.5,13Zm9.425,5.144A5,5,0,0,1,19,24H15a1,1,0,0,1-1-1V20.737A7.959,7.959,0,0,1,12,21a7.84,7.84,0,0,1-2-.27V23a1,1,0,0,1-1,1H5A5,5,0,0,1,.075,18.144l.3-1.74a2.939,2.939,0,0,1,5.337-1.138C6.976,17.124,9.409,19,12,19h0c3.13,0,6.214-2.779,7.13-5.376a1.03,1.03,0,0,1,.959-.667l.432.007A1.461,1.461,0,0,0,22,11.5a1.5,1.5,0,0,0-1.23-1.474,1,1,0,0,1-.816-.879A7.977,7.977,0,0,0,12,2C6.423,2,4.892,5.628,3.662,8.544c-.224.527-.435,1.03-.662,1.483A13.354,13.354,0,0,0,13.186,4.419a1,1,0,0,1,1.628,1.162,15.089,15.089,0,0,1-4.956,4.467,1.5,1.5,0,1,1-1.725.84,15.807,15.807,0,0,1-7.257,1.1A1,1,0,0,1,.5,10.136,6.372,6.372,0,0,0,1.819,7.767C3.124,4.674,5.1,0,12,0a9.972,9.972,0,0,1,9.85,8.274A3.5,3.5,0,0,1,24,11.5a3.428,3.428,0,0,1-.854,2.257c.007.026.025.047.03.075ZM8,19.94a11.088,11.088,0,0,1-3.941-3.552.946.946,0,0,0-.783-.424H3.259a.945.945,0,0,0-.911.782l-.3,1.739A3,3,0,0,0,5,22H8Zm13.955-1.455-.628-3.613a3.384,3.384,0,0,1-.579.086A11.033,11.033,0,0,1,16,19.952V22h3a3,3,0,0,0,2.955-3.514Z"/>
+                      </svg>
+                      
+                        <p class="leading-relaxed">"With Task Stat, I've been able to stay on top of my deadlines and improve my productivity significantly."</p>
+                        <span class="inline-block h-1 w-10 rounded bg-blue-400 mt-6 mb-4"></span>
+                        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Maria Sanchez</h2>
+                        <p class="text-gray-500">Psicologist</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/3 lg:mb-0 p-4">
+                    <div class="h-full text-center">
+                      <?xml version="1.0" encoding="UTF-8"?>
+                      <svg class="w-20 h-20 mb-8 p-2 object-cover object-center rounded-full inline-block border-2 border-blue-400 fill-gray-500" xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24" width="512" height="512"><path d="M14.5,13A1.5,1.5,0,1,1,16,11.5,1.5,1.5,0,0,1,14.5,13Zm7.351-4.726A9.975,9.975,0,0,0,12,0C5.1,0,3.124,4.674,1.819,7.767A6.372,6.372,0,0,1,.5,10.136a1,1,0,0,0,.379,1.856,15.806,15.806,0,0,0,7.257-1.1,1.5,1.5,0,1,0,1.724-.84,15.09,15.09,0,0,0,4.956-4.467,1,1,0,1,0-1.626-1.162A13.357,13.357,0,0,1,3,10.027c.227-.453.438-.956.662-1.483C4.892,5.628,6.423,2,12,2a7.978,7.978,0,0,1,7.954,7.15,1,1,0,0,0,.816.878A1.5,1.5,0,0,1,20.5,13a1.606,1.606,0,0,1-.252-.027.994.994,0,0,0-1.117.651C18.215,16.221,15.132,19,12,19h0c-2.9,0-5.6-2.283-6.766-4.539a1,1,0,1,0-1.776.92A11.264,11.264,0,0,0,8,19.953V23a1,1,0,0,0,2,0V20.738a7.708,7.708,0,0,0,4,0V23a1,1,0,0,0,2,0V19.954a11.037,11.037,0,0,0,4.732-4.962,3.5,3.5,0,0,0,1.119-6.718Z"/></svg>
+                        <p class="leading-relaxed">"The best task management tool I've ever used. The features are exactly what I needed to keep my projects organized."</p>
+                        <span class="inline-block h-1 w-10 rounded bg-blue-400 mt-6 mb-4"></span>
+                        <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Marcel Rivera</h2>
+                        <p class="text-gray-500">Digital Marketer </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="text-gray-600 bg-gray-100 body-font relative">
+      <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-col text-center w-full mb-12">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contact Us</h1>
+          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Feel free to reach out if you have any questions or need support. We're here to help you make the most of our app.</p>
+        </div>
+        <form id="contactForm" class="lg:w-1/2 md:w-2/3 mx-auto">
+          <div class="flex flex-wrap -m-2">
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                <input type="text" id="name" name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-1/2">
+              <div class="relative">
+                <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                <input type="email" id="email" name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <div class="relative">
+                <label for="message" class="leading-7 text-sm text-gray-600">Message</label>
+                <textarea id="message" name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-blue-400 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+              </div>
+            </div>
+            <div class="p-2 w-full">
+              <button type="submit" class="flex mx-auto text-white bg-blue-400 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    
+      <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevenir el envío del formulario estándar
+    
+          const form = event.target;
+          const formData = new FormData(form);
+    
+          fetch('https://formsubmit.co/danielriveravelasquez@gmail.com', {
+            method: 'POST',
+            body: formData,
+          })
+          .then(response => {
+            if (response.ok) {
+              alert('Form submitted successfully!');
+              form.reset(); // Limpiar el formulario después de enviarlo
+            } else {
+              alert('Error submitting form.');
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            alert('Error submitting form.');
+          });
+        });
+      </script>
+    </section>
+    
+</div>
+
+{% endblock %}
