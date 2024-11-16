@@ -6,9 +6,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG')
+PRODUCTION = os.getenv('PRODUCTION')
 
-ALLOWED_HOSTS = ['','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*','localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -42,8 +43,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
+if not PRODUCTION:
+    MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"]
 
 ROOT_URLCONF = 'TaskStat.urls'
 
@@ -67,20 +69,28 @@ LOGIN_URL = '/main/index/'
 
 WSGI_APPLICATION = 'TaskStat.wsgi.application'
 
-if DEBUG == False:
+if PRODUCTION:
+    DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL'),
+        conn_max_age=600
+        )
+    }
+elif DEBUG and PRODUCTION:
+    DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_PUBLIC_URL'),
+        conn_max_age=600
+        )
+    }
+else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-else:
-    DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASES'),
-        conn_max_age=600
-    )
-}
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
