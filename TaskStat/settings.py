@@ -6,8 +6,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = os.getenv('DEBUG')
-PRODUCTION = os.getenv('PRODUCTION')
+# Convertir strings a boolean
+PRODUCTION = os.getenv('PRODUCTION', 'False').lower() == 'true'
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
 ALLOWED_HOSTS = ['*','localhost', '127.0.0.1']
 
@@ -69,28 +70,31 @@ LOGIN_URL = '/main/index/'
 
 WSGI_APPLICATION = 'TaskStat.wsgi.application'
 
-if PRODUCTION:
+# Configuración de bases de datos
+if PRODUCTION and not DEBUG:
+    # Entorno de producción
     DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_URL'),
-        conn_max_age=600
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_URL'),
+            conn_max_age=600
         )
     }
-elif DEBUG and PRODUCTION:
+elif PRODUCTION and DEBUG:
+    # Entorno de desarrollo con base de datos remota
     DATABASES = {
-    'default': dj_database_url.config(
-        default=os.getenv('DATABASE_PUBLIC_URL'),
-        conn_max_age=600
+        'default': dj_database_url.config(
+            default=os.getenv('DATABASE_PUBLIC_URL'),
+            conn_max_age=600
         )
     }
 else:
+    # Entorno local con SQLite
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': BASE_DIR / 'db.sqlite3',
         }
     }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},

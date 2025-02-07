@@ -1,7 +1,7 @@
 module.exports = {
     content: [
-        './templates/**/*.html',
-        './staticfiles/**/*.html',  // Si tienes archivos HTML en staticfiles
+        '../templates/**/*.html',
+        '../**/templates/**/*.html',  // Si tienes archivos HTML en staticfiles
         './staticfiles/**/*.js',    // Si tienes archivos JS en staticfiles
     ],
     theme: {

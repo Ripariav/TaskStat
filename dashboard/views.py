@@ -8,9 +8,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 import json
 from django.utils.timezone import now
 from django.contrib.auth.forms import UserChangeForm
-from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
-from datetime import datetime
 import calendar
 
 @login_required
