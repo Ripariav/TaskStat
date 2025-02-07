@@ -10,7 +10,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 PRODUCTION = os.getenv('PRODUCTION', 'False').lower() == 'true'
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['*','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*','localhost', '127.0.0.1', 'taskstat.up.railway.app', 'https://taskstat.up.railway.app', 'https://*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -132,4 +132,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUDSTED_ORIGINS = ['*', 'https://*']
+CSRF_TRUDSTED_ORIGINS = ['https://taskstat.up.railway.app/', 'https://taskstat.up.railway.app/*', 'taskstat.up.railway.app', 'https://*']
